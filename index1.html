@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruisi Jin | Professional Portfolio</title>
+    
+    <style>
+        /* ==========================================
+           CSS RESET & BASE STYLES
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ==========================================
+           HEADER & NAVIGATION
+           ========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background-color: #1e3a8a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        .nav-links a:hover {
+            color: #1e3a8a;
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            background-color: #1e3a8a;
+            color: white !important;
+            transition: background-color 0.2s;
+        }
+
+        .nav-cta:hover {
+            background-color: #172554;
+        }
+
+        .mobile-btn {
+            display: none;
+            font-size: 1.25rem;
+            color: #334155;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* ==========================================
+           HERO SECTION
+           ========================================== */
+        .hero {
+            padding: 140px 2rem 80px 2rem;
+            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.04), #ffffff);
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .hero-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            background-color: #dbeafe;
+            color: #1e3a8a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: #1e3a8a;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #475569;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            background-color: #1e3a8a;
+            color: white;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #172554;
+        }
+
+        .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            background-color: white;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f8fafc;
+        }
+
+        .hero-card {
+            width: 100%;
+            max-width: 320px;
+            height: 320px;
+            margin: 0 auto;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1e3a8a, #0f766e);
+            padding: 4px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .hero-card-inner {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .avatar-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #eff6ff;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* ==========================================
+           SECTION COMMONS
+           ========================================== */
+        section {
+            padding: 100px 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #0f766e;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+        }
+
+        /* ==========================================
+           ABOUT SECTION
+           ========================================== */
+        .about-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.25rem;
+            color: #334155;
+            font-size: 1.05rem;
+        }
+
+        .about-box {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .about-box h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .focus-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .focus-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* ==========================================
+           PROJECTS SECTION
+           ========================================== */
+        .projects-bg {
+            background-color: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .projects-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: #eff6ff;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0f766e;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .tag {
+            padding: 0.25rem 0.6rem;
+            background-color: #f1f5f9;
+            color: #334155;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+
+        /* ==========================================
+           SKILLS SECTION
+           ========================================== */
+        .skills-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .skill-group-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .skill-level {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background-color: #dbeafe;
+            color: #1e3a8a;
+        }
+
+        /* ==========================================
+           CAREER GOALS SECTION
+           ========================================== */
+        .goals-grid {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .goal-card {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .goal-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background-color: #eff6ff;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .goal-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+        }
+
+        .goal-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        /* ==========================================
+           CONTACT SECTION
+           ========================================== */
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #334155;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .contact-link-item:hover {
+            color: #1e3a8a;
+        }
+
+        .contact-icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eff6ff;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background-color: white;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-socials a:hover {
+            color: white;
+        }
+
+        /* ==========================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-btn {
+                display: block;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            .hero p {
+                margin: 0 auto 2rem auto;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .about-grid, .goals-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         NAVIGATION BAR
+         ========================================== -->
+    <header>
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <div class="logo-badge">RJ</div>
+                <span>Ruisi Jin</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects & Coursework</a>
+                <a href="#skills">Skills & AI</a>
+                <a href="#goals">Career Goals</a>
+                <a href="#contact" class="nav-cta">Contact Me</a>
+            </nav>
+            <button class="mobile-btn" id="menu-btn" aria-label="Toggle navigation">
+                ☰
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#about">About</a>
+            <a href="#projects">Projects & Coursework</a>
+            <a href="#skills">Skills & AI</a>
+            <a href="#goals">Career Goals</a>
+            <a href="#contact" style="color: #1e3a8a; font-weight: 600;">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    University of New Haven
+                </div>
+                <h1>Hi, I'm <span>Ruisi Jin</span>.</h1>
+                <p>
+                    Majoring in <strong>AI in Business and Analytics</strong>. Passionate about uncovering the underlying logic of commerce, machine learning, and data-driven problem solving.
+                </p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-primary">
+                        <span>Explore Projects</span>
+                    </a>
+                    <a href="#contact" class="btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-card">
+                    <div class="hero-card-inner">
+                        <div class="avatar-circle">RJ</div>
+                        <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 0.25rem;">Ruisi Jin</h3>
+                        <p style="font-size: 0.8rem; color: #64748b;">AI in Business & Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ABOUT ME & ACADEMIC INTERESTS SECTION
+         ========================================== -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-tag">About Me</div>
+            <h2 class="section-title">Academic Background & Motivation</h2>
+            <p class="section-subtitle">Understanding the mechanics behind modern business and intelligent systems.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I am currently pursuing my degree in <strong>AI in Business and Analytics</strong> at the University of New Haven.
+                </p>
+                <p>
+                    <strong>Why I chose it:</strong> I chose this major because I am interested in combining artificial intelligence, data analysis, and business to solve real-world problems and make better decisions.
+                </p>
+                <p>
+                    I want to understand the underlying logic and mechanisms of how businesses operate—how companies run, scale, and analyze operational data to create strategic advantages.
+                </p>
+            </div>
+            <div class="about-box">
+                <h4>Core Academic Focus</h4>
+                <ul class="focus-list">
+                    <li class="focus-item">
+                        <span>✓</span>
+                        <span><strong>Business Mechanics:</strong> Learning the operational logic and financial frameworks driving modern enterprises.</span>
+                    </li>
+                    <li class="focus-item">
+                        <span>✓</span>
+                        <span><strong>AI & Data Integration:</strong> Bridging quantitative analytics with enterprise strategy.</span>
+                    </li>
+                    <li class="focus-item">
+                        <span>✓</span>
+                        <span><strong>Supply Chain & Analytics:</strong> Investigating logistical efficiency and operational performance.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ACADEMIC PROJECTS & COURSEWORK HIGHLIGHTS
+         ========================================== -->
+    <section id="projects" class="projects-bg">
+        <div class="section-header">
+            <div class="section-tag">Portfolio</div>
+            <h2 class="section-title">Academic Projects & Coursework Highlights</h2>
+            <p class="section-subtitle">Applied coursework showcasing technical rigor and problem-solving methodologies.</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <div>
+                    <span class="project-badge">Coursework & Research</span>
+                    <h4>Machine Learning & AI Innovation</h4>
+                    <p>
+                        Completed coursework and hands-on explorations in Machine Learning, Data Governance, and AI for Business Innovation. Focused on leveraging algorithms to extract actionable insights from raw data.
+                    </p>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">AI Innovation</span>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <div>
+                    <span class="project-badge" style="color: #0f766e;">Data Governance</span>
+                    <h4>Data Governance & Quality</h4>
+                    <p>
+                        Explored frameworks for data compliance, integrity, and security. Examined how structured data governance underpins reliable business analytics and decision making.
+                    </p>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">Data Governance</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Compliance</span>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card">
+                <div>
+                    <span class="project-badge">Analytics & Supply Chain</span>
+                    <h4>Supply Chain & Data Analysis</h4>
+                    <p>
+                        Worked on data analysis and research projects involving Python, statistical analysis, and machine learning models tailored toward supply chain and business optimization.
+                    </p>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">Python</span>
+                    <span class="tag">Statistical Analysis</span>
+                    <span class="tag">Supply Chain</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SKILLS & TECHNICAL COMPETENCIES SECTION
+         ========================================== -->
+    <section id="skills">
+        <div class="section-header">
+            <div class="section-tag">Competencies</div>
+            <h2 class="section-title">Skills & Technical Stack</h2>
+            <p class="section-subtitle">The tools and analytical frameworks I use to bridge data and business.</p>
+        </div>
+        <div class="skills-grid">
+            <!-- Skill Group 1 -->
+            <div class="skill-group">
+                <div class="skill-group-title">Programming & Databases</div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span>Python</span><span class="skill-level">Proficient</span></li>
+                    <li class="skill-item"><span>SQL</span><span class="skill-level">Intermediate</span></li>
+                </ul>
+            </div>
+            <!-- Skill Group 2 -->
+            <div class="skill-group">
+                <div class="skill-group-title" style="color: #0f766e;">Data Analysis & BI</div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span>Excel</span><span class="skill-level" style="background-color: #ccfbf1; color: #0f766e;">Advanced</span></li>
+                    <li class="skill-item"><span>Power BI</span><span class="skill-level" style="background-color: #ccfbf1; color: #0f766e;">Basic</span></li>
+                    <li class="skill-item"><span>Tableau</span><span class="skill-level" style="background-color: #ccfbf1; color: #0f766e;">Basic</span></li>
+                </ul>
+            </div>
+            <!-- Skill Group 3 -->
+            <div class="skill-group">
+                <div class="skill-group-title">AI & Methodologies</div>
+                <ul class="skill-list">
+                    <li class="skill-item"><span>Machine Learning</span><span class="skill-level">Developing</span></li>
+                    <li class="skill-item"><span>Statistical Analysis</span><span class="skill-level">Applied</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CAREER GOALS & INTERESTS SECTION
+         ========================================== -->
+    <section id="goals" class="projects-bg">
+        <div class="section-header">
+            <div class="section-tag">Roadmap</div>
+            <h2 class="section-title">Career Goals & Future Aspirations</h2>
+            <p class="section-subtitle">Where I am heading and how I plan to impact the industry.</p>
+        </div>
+        <div class="goals-grid">
+            <div class="goal-card">
+                <h4>Short-Term Career Goal</h4>
+                <p>
+                    My goal is to pursue a career in data science, artificial intelligence, or data analytics. I am eager to apply my skills to real-world business challenges, optimize supply chain operations, and help organizations make smarter, data-backed decisions.
+                </p>
+            </div>
+            <div class="goal-card">
+                <h4>Long-Term Academic & Career Goal</h4>
+                <p>
+                    In the long term, I hope to attend a strong graduate program in data science or computer science and work on advanced artificial intelligence and data-driven technologies that shape the future of enterprise operations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACT INFORMATION SECTION
+         ========================================== -->
+    <section id="contact">
+        <div class="section-header">
+            <div class="section-tag">Connect</div>
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">I am always open to discussing data science, AI, internships, or academic collaborations.</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h4>Let's Connect!</h4>
+                    <p>Whether you have an opportunity to share or simply want to connect over shared interests in AI and business analytics, feel free to reach out.</p>
+                    <div class="contact-links">
+                        <a href="mailto:rjin1@unh.newhaven.edu" class="contact-link-item">
+                            <span>✉ rjin1@unh.newhaven.edu</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ruisi-jin-a7a3a742b" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                            <span>🔗 LinkedIn Profile</span>
+                        </a>
+                        <a href="https://github.com/ruisijin1" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                            <span>💻 GitHub Homepage</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message! You can also reach me directly at rjin1@unh.newhaven.edu');">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Email</label>
+                        <input type="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="3" required placeholder="Hello Ruisi, I'd love to connect..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Ruisi Jin. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/ruisi-jin-a7a3a742b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/ruisijin1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:rjin1@unh.newhaven.edu">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT FOR MOBILE MENU TOGGLE
+         ========================================== -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
